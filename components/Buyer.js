@@ -167,7 +167,7 @@ function Buyer() {
           </div>
         </div >
         <div className={styles.btnSell}>
-          <button className={styles.button} onClick={handleSubmit} >Rechercher</button>
+          <button className={styles.button} onClick={handleSubmit} >Recherche</button>
         </div>
       </div>
       <div className={styles.card}>
