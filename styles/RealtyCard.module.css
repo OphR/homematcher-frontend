@@ -3,20 +3,23 @@
 
 .card {
   display: flex;
-  justify-items: center;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
+  background-color: white;
+  border-radius: 20px;
+  margin: 20px;
+  padding: 20px;
+  border: solid 3px #FF4D4D;
 }
 
 .container{
-    border: solid 6px #FF4D4D;
+    border: solid 3px #FF4D4D;
   }
 
 /*Image*/
 .carrousel {
-    display: flex;
-
+padding: 0px;
   }
 
   /*Texte*/
@@ -41,7 +44,8 @@
     background-color: white;
     border-radius: 20px;
     padding: 13px;
-    border: solid 1px #FF4D4D;
+    
+    margin-left: 1%;
   }
 
 /*Icone Delete*/
@@ -56,5 +60,5 @@
     width: 50px;
     border-radius: 50px;
     cursor:pointer;
-  
+
   }

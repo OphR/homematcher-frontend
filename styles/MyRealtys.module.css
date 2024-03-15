@@ -3,8 +3,8 @@
 
 /* MyRealtys.module.css */
 
+
 .main {
-  display: grid;
   grid-template-rows: auto 1fr; /* Ajout d'une ligne automatique pour le header et le reste pour le contenu */
   width: 100vw;
   min-height: 100vh;
@@ -19,7 +19,8 @@
 .btnContainer {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-top: 2%; 
+  
 }
 
 .container {
@@ -31,6 +32,7 @@
 }
 
 .btn {
+  margin-top: 20px;
   background-color: #ff4d4d;
   color: white;
   height: 5vh;
@@ -47,5 +49,3 @@
   flex-wrap: wrap;
   justify-content: center; /* Centrage horizontal des RealtyCards */
 }
-
-/* Assurez-vous que le reste de vos styles est correctement défini */

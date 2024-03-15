@@ -23,10 +23,22 @@
     border: solid 3px #FF4D4D;
 }
 
-.card{
+.cardSeller{
     grid-column-start:6;
     grid-column-end:11;
     grid-row-start:5;
+    grid-row-end:11;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    border-radius: 10px;
+    background-color: white;
+    border: solid 3px #FF4D4D;
+}
+.cardBuyer{
+    grid-column-start:6;
+    grid-column-end:11;
+    grid-row-start:3;
     grid-row-end:11;
     display: flex;
     justify-content: center;
