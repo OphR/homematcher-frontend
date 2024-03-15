@@ -53,7 +53,7 @@ function Seller() {
     });
 
     const handleSubmit = () => {
-        fetch(`http://localhost:3000/users/filteredUsers?budget[$gt]=${budget}&delay[$lt]=${delay}&financed=${financed}`, {
+        fetch(`https://homematcher-backend.vercel.app/users/filteredUsers?budget[$gt]=${budget}&delay[$lt]=${delay}&financed=${financed}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -79,7 +79,7 @@ function Seller() {
     const handleLick = () => {
         const email = card[index].email;
         const action = 'profileLike';
-        fetch('http://localhost:3000/notification', {
+        fetch('https://homematcher-backend.vercel.app/notification', {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json',

@@ -10,7 +10,7 @@ function Match() {
     const [match, setMatch] = useState([])
     console.log(user)
     useEffect(() => { 
-        fetch(`http://localhost:3000/users/${user}`, {
+        fetch(`https://homematcher-backend.vercel.app/users/${user}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

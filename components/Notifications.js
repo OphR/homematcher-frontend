@@ -12,7 +12,7 @@ function Likes() {
     const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:3000/notification/messages', {
+        fetch('https://homematcher-backend.vercel.app/notification/messages', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ function Likes() {
 
     const handleDelete = async (index) => {
         try {
-            const response = await fetch(`http://localhost:3000/notification/${index}`, {
+            const response = await fetch(`https://homematcher-backend.vercel.app/notification/${index}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ function Likes() {
         setShowModal(true);
         const userId = data.by;
         console.log(userId);
-        fetch(`http://localhost:3000/users/${userId}`, {
+        fetch(`https://homematcher-backend.vercel.app/users/${userId}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -95,7 +95,7 @@ function Likes() {
     const handleLick = () => {
         const email = selectedNotification.email;
         const action = 'profileLike';
-        fetch('http://localhost:3000/notification', {
+        fetch('https://homematcher-backend.vercel.app/notification', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

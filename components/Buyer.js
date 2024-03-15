@@ -71,11 +71,11 @@ function Buyer() {
   };
 
   const handleSubmit = () => {
-    fetch(`http://localhost:3000/realtys/filteredRealtys?budget[$lt]=${budget}&typeOfRealty=${typeOfRealty}&terrace=${terrace}&livingArea[$lt]=${livingArea}&outdoorArea[$lt]=${outdoorArea}&rooms[$lt]=${rooms}`, {
+    fetch(`https://homematcher-backend.vercel.app/realtys/filteredRealtys?budget[$lt]=${budget}&typeOfRealty=${typeOfRealty}&terrace=${terrace}&livingArea[$lt]=${livingArea}&outdoorArea[$lt]=${outdoorArea}&rooms[$lt]=${rooms}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `${user.token}` // Incluez le token dans l'en-tête Authorization
+        'Authorization': `${user.token}` 
       },
     }).then(response => response.json())
       .then(data => {
@@ -97,7 +97,7 @@ function Buyer() {
     const realtyId = card[index]._id;
     console.log(realtyId)
     const action = 'realtyLike';
-    fetch('http://localhost:3000/notification', {
+    fetch('https://homematcher-backend.vercel.app/notification', {
     method: 'POST',
     headers: {
     'Content-Type': 'application/json',

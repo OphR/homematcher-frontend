@@ -26,7 +26,7 @@ function AvatarCarrousel() {
           {avatars.map((avatar, index) => (
             <img
               key={index}
-              src={require(`../public/avatars/${avatar}`).default} // Assurez-vous de remplacer le chemin correctement
+              src={require(`../public/avatars/${avatar}`).default} 
               alt={`Avatar ${index + 1}`}
               className={`avatar ${selectedAvatar === avatar ? 'selected' : ''}`}
               onClick={() => handleAvatarClick(avatar)}

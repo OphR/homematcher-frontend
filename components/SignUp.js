@@ -36,7 +36,7 @@ function SignUp() {
     const handleSubmit = () => {
         let audio = new Audio(click);
         audio.play();
-        fetch('http://localhost:3000/users/signup', {
+        fetch('https://homematcher-backend.vercel.app/users/signup', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: signUpEmail, password: signUpPassword }),

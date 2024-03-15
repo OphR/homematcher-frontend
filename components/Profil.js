@@ -27,7 +27,7 @@ function Profil() {
 
 //Modifier les données pour le fetch
     useEffect(() => {
-        fetch('http://localhost:3000/users', {
+        fetch('https://homematcher-backend.vercel.app/users', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ function Profil() {
       }, []);
 
 const handleSubmit = () => {
-    fetch('http://localhost:3000/users/update', {
+    fetch('https://homematcher-backend.vercel.app/users/update', {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',

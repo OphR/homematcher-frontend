@@ -13,7 +13,7 @@ function MyRealtys() {
 
    // Récupération des biens immobiliers
   useEffect(() => {
-    fetch('http://localhost:3000/realtys', {
+    fetch('https://homematcher-backend.vercel.app/realtys', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

@@ -11,7 +11,7 @@ function RealtyCard(props) {
   const dispatch = useDispatch();
 
   const deleteCard = (id) => {
-    fetch(`http://localhost:3000/realtys/delete/${id}`, { // Utilisez l'ID de la propriété immobilière dans l'URL de l'API
+    fetch(`https://homematcher-backend.vercel.app/realtys/delete/${id}`, { // Utilisez l'ID de la propriété immobilière dans l'URL de l'API
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

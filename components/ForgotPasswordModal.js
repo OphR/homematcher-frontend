@@ -13,7 +13,7 @@ const [resMessage, setResMessage] = useState('');
 
 
 const handleSubmit = ()=>{
-    fetch('http://localhost:3000/users/forgotpassword', {
+    fetch('https://homematcher-backend.vercel.app/users/forgotpassword', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email: email })

@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import styles from '../styles/AddRealty.module.css'
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
@@ -80,14 +79,13 @@ function AddRealty() {
 
   const handleFileSelect = (e) => {
     const files = e.target.files;
-    // Traitez les fichiers sélectionnés comme vous le souhaitez;
   };
 
   const handlePhotoChange = (e) => {
     const file = e.target.files[0];
     const formData = new FormData()
     formData.append('photoFromFront', file)
-    fetch('http://localhost:3000/realtys/upload', {
+    fetch('https://homematcher-backend.vercel.app/realtys/upload', {
       method: "POST",
       body: formData
     }).then(response => response.json())
@@ -96,7 +94,7 @@ function AddRealty() {
 
   const handleAddRealty = () => {
     if (validateFields()) {
-      fetch('http://localhost:3000/realtys/addRealtys', {
+      fetch('https://homematcher-backend.vercel.app/realtys/addRealtys', {
         method: "POST",
         headers: { 
           'Content-Type': 'application/json',
@@ -110,7 +108,7 @@ function AddRealty() {
         })
         .catch(error => console.error('Erreur:', error));
     } else {
-      setShowWarning(true); // Afficher le message d'avertissement
+      setShowWarning(true); 
     }
   };
 
