@@ -112,7 +112,6 @@
     .header {
       flex-direction: column;
       height: auto;
-      padding: 20px;
     }
   
     .logoContainer {
