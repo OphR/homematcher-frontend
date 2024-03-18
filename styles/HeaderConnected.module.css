@@ -102,4 +102,23 @@
     font-weight: bold;
 }
 
-
+/* Media Queries pour rendre le design responsive sur mobile */
+@media only screen and (max-width: 600px) {
+    .header {
+      flex-direction: column;
+      padding: 10px;
+    }
+  
+    .h1 {
+      font-size: 18px;
+      margin: 10px;
+    }
+  
+    .h2 {
+      font-size: 11px;
+    }
+  
+    .h3 {
+      font-size: 30px;
+    }
+  }

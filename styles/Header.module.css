@@ -105,3 +105,23 @@
     color: red;
     font-weight: bold;
 }
+
+
+/* Media Queries pour rendre le design responsive sur mobile */
+@media only screen and (max-width: 600px) {
+    .header {
+      flex-direction: column;
+      height: auto;
+      padding: 20px;
+    }
+  
+    .logoContainer {
+      margin: 20px;
+    }
+  
+    .buttonsContainer {
+      margin-right: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }

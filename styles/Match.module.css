@@ -48,3 +48,21 @@
 .icon {
     margin-left:25px;
 }
+
+/* Media Queries pour rendre le design responsive sur mobile */
+@media only screen and (max-width: 600px) {
+    .main {
+      grid-template-columns: 100vw;
+      grid-template-rows: repeat(8, 12.5vh);
+    }
+  
+    .header, .body {
+      grid-column-start:1;
+      grid-column-end:2;
+    }
+  
+    .match {
+      flex-direction: column;
+      padding: 10px;
+    }
+  }

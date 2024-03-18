@@ -6,9 +6,8 @@
   background-color: #F4E6E6;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Pour empêcher la barre de défilement horizontale */
+  overflow-x: hidden;
 }
-
 
 /* Ajouter ces styles pour encadrer les inputs dans leftContainer */
 .inputContainer {
@@ -27,6 +26,19 @@
   font-weight: bold;
   color: black;
   margin-bottom: 10px;
+}
+
+/* Media Queries pour rendre le design responsive sur mobile */
+@media only screen and (max-width: 600px) {
+  .inputContainer {
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .inputTitle {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
 }
 
 

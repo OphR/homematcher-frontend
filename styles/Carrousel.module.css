@@ -40,3 +40,20 @@
   padding-left: 50px;
   cursor: pointer;
 }
+
+/* Media Queries pour rendre le design responsive sur mobile */
+@media only screen and (max-width: 600px) {
+  .body { 
+    height: 100vh; 
+  }
+
+  .height {
+    padding-left: 10px;
+    height: 50vh;
+    width: 100%;
+  }
+
+  .parentArrow{
+    height: 5vh; 
+  }
+}

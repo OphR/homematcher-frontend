@@ -178,3 +178,21 @@
   background-color: white;
   border-radius: 20px;
 }
+
+/* Media Queries pour rendre le design responsive sur mobile */
+@media only screen and (max-width: 600px) {
+  .main {
+    grid-template-columns: 100vw;
+    grid-template-rows: auto;
+  }
+
+  .header {
+    grid-column-start:1;
+    grid-column-end:2;
+  }
+
+  .container {
+    flex-direction: column;
+    padding: 10px;
+  }
+}

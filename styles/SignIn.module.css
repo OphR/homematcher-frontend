@@ -133,3 +133,11 @@ font-size: 14px;
   outline: none;
   background-color: transparent;
 }
+
+/* Media Queries pour rendre le design responsive sur mobile */
+@media only screen and (max-width: 600px) {
+  .input {
+    height: 30px;
+    margin-bottom: 20px;
+  }
+}

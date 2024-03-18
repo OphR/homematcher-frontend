@@ -49,3 +49,23 @@
   flex-wrap: wrap;
   justify-content: center; /* Centrage horizontal des RealtyCards */
 }
+
+/* Media Queries pour rendre le design responsive sur mobile */
+@media only screen and (max-width: 600px) {
+  .main {
+    min-height: auto;
+  }
+
+  .header {
+    max-height: auto;
+  }
+
+  .btnContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container {
+    margin-top: 10px;
+  }
+}

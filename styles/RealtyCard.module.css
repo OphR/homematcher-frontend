@@ -62,3 +62,16 @@ padding: 0px;
     cursor:pointer;
 
   }
+
+/* Media Queries pour rendre le design responsive sur mobile */
+@media only screen and (max-width: 600px) {
+  .card {
+    flex-direction: column;
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .p {
+    font-size: 12px;
+  }
+}

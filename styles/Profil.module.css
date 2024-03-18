@@ -152,3 +152,11 @@ display: flex;
     padding:10px 10px 10px 10px;
     border-radius: 15px;
   }
+
+/* Media Queries pour rendre le design responsive sur mobile */
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 90%;
+    padding: 20px;
+  }
+}
