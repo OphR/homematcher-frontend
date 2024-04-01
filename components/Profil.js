@@ -1,10 +1,9 @@
-import styles from '../styles/Profil.module.css';
 import HeaderConnected from './HeaderConnected'
 import React, { useState, useEffect } from 'react';
-import '../styles/CarrouselAvatar.module.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { UpdateProfil } from '../reducers/user';
-import { Descriptions } from 'antd';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Profil() {
     const user = useSelector((state) => state.user.value);
@@ -100,60 +99,60 @@ const handleSubmit = () => {
   };
 
     return (
-<div className={styles.main}>
-    <div className={styles.header}>
+<div className="main">
         <HeaderConnected/>
+    <div className="profilContainer">
+        <div className="leftContainer">
+            <div className="profilPic">
+                {selectedImage && <img src={selectedImage} alt="Profil" className="selectedImage" />}                        
+                <select className="avatarbutton" onChange={handleImageChange}>
+                    <option className="p" value="">Choisis ton avatar</option>
+                    <option className="p" value="./avatar1.jpg">Avatar 1</option>
+                    <option className="p" value="./avatar2.jpg">Avatar 2</option>
+                    <option className="p" value="./avatar3.jpg">Avatar 3</option>
+                    <option className="p" value="./avatar4.jpg">Avatar 4</option>
+                    <option className="p" value="./avatar5.jpg">Avatar 5</option>
+                    <option className="p" value="./avatar6.jpg">Avatar 6</option>
+                    <input type="hidden" className="input" />
+                </select>
+            </div>
+        </div>
+        <div className="rightContainer">
+            <h4 className="h2">Mes informations:</h4>
+            <div className="inputConfiguration">
+                <h4 className="h4">Username :</h4>
+                <input className="input" onChange={e => setUsername(e.target.value)} value={username} />
+            </div>
+            <div className="inputConfiguration">
+                <h4 className="h4">Délai maximum:</h4>
+                <input type="range" min={minDelay} max={maxDelay} value={delay} onChange={handleDelayChange} className="inputRange" />
+                <span className='p'>{delay} semaine(s)</span>
+            </div>
+            <div className="inputConfiguration">
+                <h4 className="h4">Budget maximum: </h4>
+                <input type="range" min={minBudget} max={maxBudget} step={10000} value={budget} onChange={handleBudgetChange} className="inputRange" />
+                <span className='p'>{budget} €</span>
+            </div>
+            <div>
+                <h4 className="h4">Financement :</h4>
+                <div >
+                    <input className='p' type="radio" id="financed-yes" name="financed" value={true} checked={financed === true} onChange={() => setFinanced(true)} />
+                    <label className='p' htmlFor="financed-yes">Oui</label>
+                    <input type="radio" id="financed-no" name="financed" value={false} checked={financed === false} onChange={() => setFinanced(false)} />
+                    <label className='p' htmlFor="financed-no">Non</label>
+                </div>
+                <div className="inputDesc">
+                    <h4 className="h4">Quelques mots pour te décrire...</h4>
+                    <input className="input" onChange={e => setDescription(e.target.value)} value={description} />
+                </div>
+            </div>
+        </div>
     </div>
-    <div className={styles.container}>
-        <div className={styles.leftContainer}>
-            <div className={styles.profilPic}>
-            {selectedImage && <img src={selectedImage} alt="Profil" className={styles.selectedImage} />}                        
-            <select className={styles.avatarbutton} onChange={handleImageChange}>
-                <option value="">Choisis ton avatar</option>
-                <option  value="./avatar1.jpg">Avatar 1</option>
-                <option  value="./avatar2.jpg">Avatar 2</option>
-                <option  value="./avatar3.jpg">Avatar 3</option>
-                <option  value="./avatar4.jpg">Avatar 4</option>
-                <option  value="./avatar5.jpg">Avatar 5</option>
-                <option  value="./avatar6.jpg">Avatar 6</option>
-                <input type="hidden" className={styles.input} />
-            </select>
-            </div>
-        </div>
-        <div className={styles.rightContainer}>
-           <h3 className={styles.h3}> Mes informations:</h3>
-           <div className={styles.inputConfiguration}>
-                <p className={styles.p}>Username :</p>
-                <input className={styles.input} onChange={e => setUsername(e.target.value)} value={username} />
-                </div>
-                <div className={styles.inputConfiguration}>
-                <p className={styles.p}>Délai maximum:</p>
-                <input type="range" min={minDelay} max={maxDelay} value={delay} onChange={handleDelayChange} className={styles.inputRange}/>
-                <span>{delay} semaine(s)</span>
-                </div>
-              <div className={styles.inputConfiguration}>
-                <p className={styles.p}> Budget maximum: </p>
-                <input type="range" min={minBudget} max={maxBudget} step={10000} value={budget} onChange={handleBudgetChange} className={styles.inputRange} />
-                <span>{budget} €</span>
-              </div>
-              <div>
-                <p className={styles.p}>Financement :</p>
-                        <div >
-                        <input type="radio" id="financed-yes" name="financed" value={true} checked={financed === true} onChange={() => setFinanced(true)} />
-                        <label htmlFor="financed-yes">Oui</label>
-                        <input type="radio" id="financed-no" name="financed" value={false} checked={financed === false} onChange={() => setFinanced(false)} />
-                        <label htmlFor="financed-no">Non</label>
-                        </div>
-                <div className={styles.inputConfiguration}>
-                <p className={styles.p}>Quelques mots pour te décrire...</p>
-                <input className={styles.inputDesc} onChange={e => setDescription(e.target.value)} value={description}/>
-                </div>
-            </div>
-        </div>
-    </div> 
-    <button onClick={handleSubmit} className={styles.button}>Mettre à jour mon profil ✓</button>
-    {message && <p className={styles.check} >{message}</p>}
-    
+    <button onClick={handleSubmit} className="buttonUpdateProfil">
+    <p className='p'> Mettre à jour mon profil </p>
+    <FontAwesomeIcon icon={faCheck} className="icon" />
+    </button>
+    {message && <p className="p">{message}</p>}
 </div>
 )
 }

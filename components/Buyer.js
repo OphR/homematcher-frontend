@@ -1,4 +1,3 @@
-import styles from '../styles/MyCriterias.module.css'
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { LoadScript, Autocomplete } from '@react-google-maps/api';
@@ -116,76 +115,75 @@ function Buyer() {
     })
     }
 
-  return (
-    <>
-      <div className={styles.mycriteres}>
-        <div className={styles.input}>
-          <label className={styles.text}>Budget:</label>
-            <input className={styles.cursor} type="range" min={minBudget} max={maxBudget} value={budget} onChange={handleBudgetChange} />
-            <span>{budget}€</span>
-        </div>
-        <div>
-          <label className={styles.text}>Localisation:</label>
-          <LoadScript googleMapsApiKey="AIzaSyCT2rUBJUBCi8pssdiVhICE4ZriXamrsjw" libraries={["places"]} >  
-            <Autocomplete onLoad={(autocomplete) => {
-              autocomplete.setFields(['address_component']);
-              autocomplete.setTypes(['(regions)']); 
-              }}
-            onPlaceChanged={() => {}}
-            >
-            <input className={styles.inputText} type="text" placeholder="Selectionnez la ville, le département, la région ou le pays" onChange={(e) => set} />
-            </Autocomplete>
-            </LoadScript>
-        </div>
-        <div className={styles.input}>
-          <label className={styles.text}>Type de Bien:</label>
+    return (
+      <>
+        <div className="matchContent">
+        <div className="myCriteria">
+          <div className="inputConfiguration">
+            <label className="h4">Budget:</label>
+              <input className="inputRange" type="range" min={minBudget} max={maxBudget} value={budget} onChange={handleBudgetChange} />
+              <span className="p">{budget}€</span>
+          </div>
           <div>
-            <input className={styles.cursor} type="checkbox" name="type" value="Appartement" checked={typeOfRealty.includes('Appartement')} onChange={handleTypeChange} /> Appartement
-            <input className={styles.cursor} type="checkbox" name="type" value="Maison" checked={typeOfRealty.includes('Maison')} onChange={handleTypeChange} /> Maison
+            <label className="h4">Localisation:</label>
+            <LoadScript googleMapsApiKey="AIzaSyCT2rUBJUBCi8pssdiVhICE4ZriXamrsjw" libraries={["places"]} >  
+              <Autocomplete onLoad={(autocomplete) => {
+                autocomplete.setFields(['address_component']);
+                autocomplete.setTypes(['(regions)']); 
+                }}
+              onPlaceChanged={() => {}}
+              >
+              <input className="input" type="text" placeholder="Selectionnez la ville, le département, la région ou le pays" onChange={(e) => set} />
+              </Autocomplete>
+              </LoadScript>
           </div>
-        </div>
-        <div className={styles.input}>
-          <label className={styles.text}>Surface du terrain:</label>
-            <input className={styles.cursor} type="range" min={minOutdoorArea} max={maxOutdoorArea} value={outdoorArea} onChange={handleOutdoorSurface} />
-            <span>{outdoorArea}m²</span>
-        </div>
-        <div className={styles.input}>
-          <label className={styles.text}>Surface habitable:</label>
-            <input className={styles.cursor} type="range" min={minLivingArea} max={maxLivingArea} value={livingArea} onChange={handleIndoorSurface} />
-            <span>{livingArea}m²</span>
-        </div>
-        <div className={styles.input}>
-          <label className={styles.text}>Nombre de pièces:</label>
-            <input className={styles.cursor} type="range" min={minRooms} max={maxRooms} value={rooms} onChange={handleRooms} />
-            <span>{rooms}</span>
-        </div>
-        <div className={styles.input}>
-          <label className={styles.text}>Terrasse Exterieure:</label>
-          <div>
-            <input className={styles.cursor} type="checkbox" name="outdoor" value={true} checked={terrace} onChange={(e) => setTerrace(true)} /> Oui
-            <input className={styles.cursor} type="checkbox" name="outdoor" value={false} checked={!terrace} onChange={(e) => setTerrace(false)} /> Non
+          <div className="inputConfiguration">
+            <label className="h4">Type de Bien:</label>
+            <div className="p">
+              <input  className="p" type="checkbox" name="type" value="Appartement" checked={typeOfRealty.includes('Appartement')} onChange={handleTypeChange} /> Appartement
+              <input  className="p" type="checkbox" name="type" value="Maison" checked={typeOfRealty.includes('Maison')} onChange={handleTypeChange} /> Maison
+            </div>
           </div>
-        </div >
-        <div className={styles.btnSell}>
-          <button className={styles.button} onClick={handleSubmit} >Recherche</button>
-        </div>
-      </div>
-      <div className={styles.card}>
-        {card && card.length > 0 ? (
-          <div className={styles.cardContent}>
-            <img className={styles.imgRealty} src={card[index].imageUrl} />
-            <p className={styles.text}>{card[index].description}</p>
-<div className={styles.buttonRow}>
-            <FontAwesomeIcon icon={faXmark} className={styles.icon} onClick={handlenone}/>
-            <FontAwesomeIcon icon={faHeart} className={styles.icon} onClick={handleLick}/>
-</div>
+          <div className="inputConfiguration">
+            <label className="h4">Surface du terrain:</label>
+              <input className="cursor" type="range" min={minOutdoorArea} max={maxOutdoorArea} value={outdoorArea} onChange={handleOutdoorSurface} />
+              <span className="p">{outdoorArea}m²</span>
           </div>
-        ) : (
-          <p className={styles.notFound}>Aucun bien n'a été trouvé.</p>
+          <div className="inputConfiguration">
+            <label className="h4">Surface habitable:</label>
+              <input className="cursor" type="range" min={minLivingArea} max={maxLivingArea} value={livingArea} onChange={handleIndoorSurface} />
+              <span className="p">{livingArea}m²</span>
+          </div>
+          <div className="inputConfiguration">
+            <label className="h4">Nombre de pièces:</label>
+              <input className="cursor" type="range" min={minRooms} max={maxRooms} value={rooms} onChange={handleRooms} />
+              <span className="p">{rooms}</span>
+          </div>
+          <div className="inputConfiguration">
+            <label className="h4">Terrasse Exterieure:</label>
+            <div className="p">
+              <input className="p" type="checkbox" name="outdoor" value={true} checked={terrace} onChange={(e) => setTerrace(true)} /> Oui
+              <input className="p" type="checkbox" name="outdoor" value={false} checked={!terrace} onChange={(e) => setTerrace(false)} /> Non
+            </div>
+          </div>
+            <button className="buttonSearch" onClick={handleSubmit} >Recherche</button>
+        </div>
+        <div className="cardBuyer">
+          {card && card.length > 0 ? (
+            <div className="cardContent">
+              <img className="img" src={card[index].imageUrl} />
+              <p className="p">{card[index].description}</p>
+              <div className="buttonRow">
+                <FontAwesomeIcon icon={faXmark} className="iconNotifications" onClick={handlenone}/>
+                <FontAwesomeIcon icon={faHeart} className="iconNotifications" onClick={handleLick}/>
+              </div>
+            </div>
+          ) : (
+            <p className="p notFound">Aucun bien n'a été trouvé.</p>
           )}
-      </div>
-    </>
-  );
+        </div>
+        </div>
+      </>
+    );
 }
-
 export default Buyer;

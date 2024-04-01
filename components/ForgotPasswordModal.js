@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, } from 'react-redux';
-import { showSignInModal, showSignUpModal,closeForgotPassword } from '../reducers/modal.js';
-import styles from '../styles/ForgotPasswordModal.module.css';
+import { showSignInModal, closeForgotPassword } from '../reducers/modal.js';
 
 
 const ForgotPasswordModal = () => {
@@ -36,15 +35,19 @@ const handleConnection =()=>{
 }
 
   return (
-    <div className={styles.container}>
-      <h2 className={styles.h2}>Réinitialisation du mot de passe</h2>
-      <h3 className={styles.h3}>Mot de passe oublié ?</h3>
-      <p className={styles.p}>Saisissez votre e-mail relié à votre compte. S'il est reconnu, vous recevrez un e-mail vous permettant de mettre à jour votre mot de passe.</p>
-      <h4 className={styles.h4}>Votre e-mail: </h4>
-      <input className={styles.input} type="email"  placeholder="Votre adresse e-mail" value={email}  onChange={(e) => setEmail(e.target.value)} />
-        <button className={styles.button} type="submit" onClick={handleSubmit}> Envoyer</button>
+    <div className="container forgotPass">
+        <h5 className="h5">Réinitialisation du mot de passe</h5>
+        <div className="close">
+        <h4 className="h4">Mot de passe oublié ?</h4>
+        <p className="p">Saisissez votre e-mail relié à votre compte. S'il est reconnu, vous recevrez un e-mail vous permettant de mettre à jour votre mot de passe.</p>
+        </div>
+        <h4 className="h4">Votre e-mail: </h4>
+        <input className="input" type="email"  value={email} onChange={(e) => setEmail(e.target.value)} />
+        <button className="buttonsignInandUp" type="submit" onClick={handleSubmit}>Envoyer</button>
         {resMessage && <p>{resMessage}</p>}
-      <p className={styles.p}>J'ai retrouvé mon mot de passe :<button  className={styles.connectButton} onClick={()=>handleConnection()} type='button' >Se connecter</button></p>
+        <p className="p">J'ai retrouvé mon mot de passe :
+            <button className="connectButton" onClick={() => handleConnection()} type='button'>Se connecter</button>
+        </p>
     </div>
   );
 

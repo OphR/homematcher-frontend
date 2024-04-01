@@ -1,4 +1,3 @@
-import styles from '../styles/MyCriterias.module.css'
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 //FontAwesome
@@ -49,7 +48,7 @@ function Seller() {
     };
 
     const realtys = myRealty.map((data, i) => {
-        return <img className={styles.image} onClick={() => handleFiltre(data.imageUrl[0])} src={data.imageUrl[0]} key={i}/>;
+        return <img className="imgSeller" onClick={() => handleFiltre(data.imageUrl[0])} src={data.imageUrl[0]} key={i}/>;
     });
 
     const handleSubmit = () => {
@@ -98,52 +97,54 @@ function Seller() {
         })
         }
 
-    return (
-        <>
-            <div className={styles.encardDePhoto}>
-                {realtys}
-            </div>
-            <div className={styles.mycriteres}>
-                <div className={styles.input}>
-                <label className={styles.text}>Délai Maximum:</label>
-                    <input className={styles.cursor} type="range" min={minDelay} max={maxDelay} value={delay} onChange={handleDelayChange}  />
-                    <span>{delay} semaine(s)</span>
+        return (
+            <>
+                <div className="encardDePhoto">
+                    {realtys}
                 </div>
-                <div className={styles.input}>
-                <label className={styles.text}>Budget Minimum:</label>
-                    <input className={styles.cursor} type="range" min={minBudget} max={maxBudget} step={10000} value={budget} onChange={handleBudgetChange}  />
-                    <span>{budget} €</span>
-                </div>
-                <label className={styles.text}>Financement:</label>
-                <div>
-                    <input className={styles.cursor} type="radio" id="financed-yes" name="financed" value={true} checked={financed === true} onChange={() => setFinanced(true)} />
-                    <label htmlFor="financed-yes">Oui</label>
-                    <input className={styles.cursor} type="radio" id="financed-no" name="financed" value={false} checked={financed === false} onChange={() => setFinanced(false)} />
-                    <label htmlFor="financed-no">Non</label>
-                </div>
-                <div className={styles.btnSell}>
-                    <button onClick={handleSubmit} className={styles.button}>Recherche</button>
-                </div>
-            </div>
-            <div className={styles.card}>
-            {card && card.length > 0 ? (
-                    <div className={styles.cardContent}>
-                        <img src={card[index].selectedImage} height={100} width={100}/>
-                        <p className={styles.text}>{card[index].username}</p>
-                        <p>{card[index].description}</p>
-                        <div className={styles.buttonRow}>
-                        <FontAwesomeIcon className={styles.icon} icon={faXmark} onClick={handlenone}/>
-                        <FontAwesomeIcon className={styles.icon} icon={faHeart} onClick={handleLick}/>
-                        </div>
+                <div className="matchContent">
+                <div className="myCriteria">
+                    <div className='myCriteriaTexte'>
+                    <div className="inputConfiguration">
+                        <label className="h4">Délai Maximum:</label>
+                        <input className="inputRange" type="range" min={minDelay} max={maxDelay} value={delay} onChange={handleDelayChange} />
+                        <span className="p">{delay} semaine(s)</span>
                     </div>
-                ) : (
+                    <div className="inputConfiguration">
+                        <label className="h4">Budget Minimum:</label>
+                        <input className="inputRange" type="range" min={minBudget} max={maxBudget} step={10000} value={budget} onChange={handleBudgetChange} />
+                        <span className="p">{budget} €</span>
+                    </div>
+                    <label className="h4">Financement:</label>
                     <div>
-                    <p className={styles.notFound}>Aucun potentiel acheteur n'a été trouvé.</p>
+                        <input  type="radio" id="financed-yes" name="financed" value={true} checked={financed === true} onChange={() => setFinanced(true)} />
+                        <label className="p" htmlFor="financed-yes">Oui</label>
+                        <input  type="radio" id="financed-no" name="financed" value={false} checked={financed === false} onChange={() => setFinanced(false)} />
+                        <label className="p" htmlFor="financed-no">Non</label>
                     </div>
-                )}
-            </div>
-        </>
-    );
-}
-
-export default Seller;
+                    </div>
+                        <button onClick={handleSubmit} className="buttonSearch">Recherche</button>
+                </div>
+                <div className="cardSeller">
+                    {card && card.length > 0 ? (
+                        <div className="cardContent">
+                            <img src={card[index].selectedImage} height={250} width={250} />
+                            <h4 className="h4">{card[index].username}</h4>
+                            <p className="p">{card[index].description}</p>
+                            <div className="buttonRow">
+                                <FontAwesomeIcon className="iconNotifications" icon={faXmark} onClick={handlenone} />
+                                <FontAwesomeIcon className="iconNotifications" icon={faHeart} onClick={handleLick} />
+                            </div>
+                        </div>
+                    ) : (
+                        <div>
+                            <p className="p notFound">Aucun potentiel acheteur n'a été trouvé.</p>
+                        </div>
+                    )}
+                </div>
+                </div>
+            </>
+        );
+        }
+        
+        export default Seller;

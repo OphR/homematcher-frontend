@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import styles from '../styles/Notifications.module.css';
 import HeaderConnected from './HeaderConnected'
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 //FontAwesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faHeart, faTrash } from '@fortawesome/free-solid-svg-icons';
@@ -29,10 +28,10 @@ function Likes() {
 
     const notification = notifications.map((data, i) => {
         return (
-            <div key={i} className={styles.notifications} onClick={() => handleNotificationClick(data)}>
-                <span >{data.notificationMessage}</span>
-                <FontAwesomeIcon icon={faTrash} onClick={() => handleDelete()} className={styles.crossIcon} />
-            </div>
+        <div key={i} className="notifications" onClick={() => handleNotificationClick(data)}>
+            <div className="p strong" >{data.notificationMessage}</div>
+            <FontAwesomeIcon icon={faTrash} onClick={handleDelete} className="iconNotifications" />
+        </div>
         );
     });
 
@@ -111,43 +110,40 @@ function Likes() {
 
     const Modal = ({ username, onClose }) => {
         return (
-            <div className={styles.modal}>
-                <div className={styles.modalContent}>
-                    <span className={styles.close} onClick={closeModal}>&times;</span>
-                    <img src={selectedNotification.selectedImage} alt="Profile Picture" height={120} width={100} />
-                    <h2 className={styles.text}>{selectedNotification.username}</h2>
-                    <div className={styles.modalDescription}>
-                    <p><strong>Description:</strong> {selectedNotification.description}</p>
-                    <p><strong>Email:</strong> {selectedNotification.email}</p>
-                    <p><strong>Délai:</strong> {selectedNotification.delay}</p>
-                    <p><strong>Financement:</strong> {selectedNotification.financed ? 'Oui' : 'Non'}</p>
+            <div className="modal">
+                <div className="modalContent">
+                    <span className="close" onClick={closeModal}>&times;</span>
+                    <img src={selectedNotification.selectedImage} alt="Profile Picture" height={200} width={200} />
+                    <h2 className="h2">{selectedNotification.username}</h2>
+                    <div className="modalDescription">
+                        <p className='p'><strong>Description:</strong> {selectedNotification.description}</p>
+                        <p className='p'><strong>Email:</strong> {selectedNotification.email}</p>
+                        <p className='p'><strong>Délai:</strong> {selectedNotification.delay}</p>
+                        <p className='p'><strong>Financement:</strong> {selectedNotification.financed ? 'Oui' : 'Non'}</p>
                     </div>
-                    <div className={styles.iconglobal}>
-                        <FontAwesomeIcon className={styles.icon} icon={faXmark} onClick={handleDelete} />
-                        <FontAwesomeIcon className={styles.icon} icon={faHeart} onClick={handleLick} />
+                    <div className="iconContainer">
+                        <FontAwesomeIcon className="iconNotifications" icon={faXmark} onClick={handleDelete} />
+                        <FontAwesomeIcon className="iconNotifications" icon={faHeart} onClick={handleLick} />
                     </div>
                 </div>
             </div>
         );
     };
     return (
-        <div className={styles.main}>
-            <div className={styles.header}>
-                <HeaderConnected />
-            </div>
-
-            <div className={styles.notificationContainer}>
-                {notifications.length === 0 ? (
-                    <div className={styles.msg}>Vous n'avez actuellement aucune notification.</div>
-                ) : (
-                    notification
-                )}
-            </div>
-            {showModal && (
-                <Modal onClose={closeModal} />
+        <div className="main">
+            <HeaderConnected />
+        <div className="notificationContainer">
+            {notifications.length === 0 ? (
+                <div className="p msg">Vous n'avez actuellement aucune notification.</div>
+            ) : (
+                notification
             )}
         </div>
-    )
+        {showModal && (
+            <Modal onClose={closeModal} />
+        )}
+    </div>
+);
 }
 
 export default Likes;

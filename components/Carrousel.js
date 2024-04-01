@@ -1,4 +1,3 @@
-import styles from '../styles/Carrousel.module.css';
 import React, { useState } from 'react';
 import { FontAwesomeIcon, } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
@@ -23,11 +22,11 @@ const ImageCarousel = ({ images }) => {
 
   // Rendu du carrousel
   return (
-    <div className={styles.body}>
-        <img className={styles.height} src={images[currentIndex]}  />
-        <div className={styles.parentArrow}>
-          <FontAwesomeIcon icon={faArrowLeft} onClick={goToPrevious} className={styles.arrow}/>
-          <FontAwesomeIcon icon={faArrowRight} onClick={goToNext} className={styles.arrow}/>
+    <div className="carousel">
+        <img className="img" src={images[currentIndex]}  />
+        <div className="parentArrow">
+          <FontAwesomeIcon icon={faArrowLeft} onClick={goToPrevious} className="arrow"/>
+          <FontAwesomeIcon icon={faArrowRight} onClick={goToNext} className="arrow"/>
         </div>
     </div>
   );

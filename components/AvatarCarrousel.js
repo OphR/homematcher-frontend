@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import styles from '../styles/CarrouselAvatar.module.css';
 
 function AvatarCarrousel() {
 
@@ -20,9 +19,9 @@ function AvatarCarrousel() {
     };
 
     return (
-      <div className={styles.avatar-carousel}>
-        <h2>Choisissez votre avatar</h2>
-        <div className={styles.avatar-container}>
+      <div className="avatar-carousel">
+        <h2 className="h2">Choisissez votre avatar</h2>
+        <div className="avatar-container">
           {avatars.map((avatar, index) => (
             <img
               key={index}
@@ -33,23 +32,23 @@ function AvatarCarrousel() {
             />
           ))}
         </div>
-        <div className={styles.arrow-container}>
+        <div className="arrow-container">
           <button
             onClick={() => handleAvatarClick(avatars[(avatars.indexOf(selectedAvatar) - 1 + avatars.length) % avatars.length])}
-            className={styles.left-arrow}
+            className="left-arrow"
           >
             &#10094;
           </button>
           <button
             onClick={() => handleAvatarClick(avatars[(avatars.indexOf(selectedAvatar) + 1) % avatars.length])}
-            className={styles.right-arrow}
+            className="right-arrow"
           >
             &#10095;
           </button>
         </div>
       </div>
     );
-  };
+}
 }
 
 export default AvatarCarrousel;

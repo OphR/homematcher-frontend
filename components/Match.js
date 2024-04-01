@@ -1,7 +1,6 @@
-import styles from '../styles/Match.module.css';
 import HeaderConnected from './HeaderConnected'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMessage, faCertificate } from '@fortawesome/free-solid-svg-icons';
+import { faMessage } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 
@@ -27,20 +26,16 @@ function Match() {
 
 
     return (
-        <div className={styles.main}>
-            <div className={styles.header}>
-                <HeaderConnected/>
-            </div>
-            <div className={styles.body}>
-            <div className={styles.match}>
-            <img src='./Avatar1.jpg'className={styles.profilpic}/>
-            <h3 className={styles.username}>Utilisateur</h3>
-            <p> Vous avez un nouveau message !</p>
-            <FontAwesomeIcon icon={faMessage} className={styles.icon} />
-        </div>
-            </div>
-        </div>
-    )
+      <div className="main">
+              <HeaderConnected/>
+          <div className="match">
+                  <img src='./Avatar1.jpg' className="profilpic" />
+                  <h4 className="h4">Utilisateur</h4>
+                  <p className="p"> Vous avez un nouveau message !</p>
+                  <FontAwesomeIcon icon={faMessage} className="iconNotifications" />
+          </div>
+      </div>
+  );
 }
 
-export default Match
+export default Match;

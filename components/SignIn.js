@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../reducers/user.js';
-import styles from '../styles/SignIn.module.css';
 import GoogleLogin from 'react-google-login';
 import SignUp from './SignUp';
 import ForgotPasswordModal from './ForgotPasswordModal.js';
@@ -40,6 +39,8 @@ function SignIn() {
     };
 
     const clickForgotPassword = () => {
+        let audio = new Audio(click);
+        audio.play();
         console.log('hello')
         dispatch(handleForgotPassword());
         
@@ -73,37 +74,37 @@ function SignIn() {
     }
 
     return (
-         !showForgotPasswordModal ? (
-            <div className={styles.container}>
-                <h2 className={styles.title}>Se connecter</h2>
-                <div className={styles.toConnect}>
-                    <p className={styles.p}>Vous n'avez pas de compte ?</p>
-                    <button onClick={handleShowModalSignUp} className={styles.connectButton}>Créer un compte</button>
+        !showForgotPasswordModal ? (
+            <div className="container">
+                <h5 className="h5">Se connecter</h5>
+                <div className="toConnect">
+                    <p className="p">Vous n'avez pas de compte ?</p>
+                    <button onClick={handleShowModalSignUp} className="connectButton">Créer un compte</button>
                 </div>
-                <h4 className={styles.h4}>Votre e-mail:</h4>
-                <input type="text" className={styles.input} onChange={(e) => setSignInEmail(e.target.value)} value={signInEmail} />
-                <h4 className={styles.h4}>Votre mot de passe:</h4>
-                <input type="password" className={styles.input} onChange={(e) => setSignInPassword(e.target.value)} value={signInPassword} />
+                <h4 className="h4">Votre e-mail:</h4>
+                <input type="text" className="input" onChange={(e) => setSignInEmail(e.target.value)} value={signInEmail} />
+                <h4 className="h4">Votre mot de passe:</h4>
+                <input type="password" className="input" onChange={(e) => setSignInPassword(e.target.value)} value={signInPassword} />
                 {errorMessage && <p>{errorMessage}</p>}
-                <button className={styles.button} onClick={() => handleSubmit()}>Se connecter</button>
-                <button onClick={clickForgotPassword} className={styles.forgotPassword}>Mot de passe oublié ?</button>
-                <h6 className={styles.h6}>ou</h6>
+                <button className="buttonsignInandUp" onClick={() => handleSubmit()}>Se connecter</button>
+                <button onClick={clickForgotPassword} className="forgotPassword">Mot de passe oublié ?</button>
+                <h6 className="h6 position">ou</h6>
                 <GoogleLogin
-                        clientId="313442107107-r67n8849np3ndu8sqllj4qblsbd0eh7c.apps.googleusercontent.com"
-                        buttonText="Sign In with Google"
-                        onSuccess={responseGoogle}
-                        onFailure={responseGoogle}
-                        cookiePolicy={'single_host_origin'}
-                    />
+                    clientId="313442107107-r67n8849np3ndu8sqllj4qblsbd0eh7c.apps.googleusercontent.com"
+                    buttonText="Sign In with Google"
+                    onSuccess={responseGoogle}
+                    onFailure={responseGoogle}
+                    cookiePolicy={'single_host_origin'}
+                />
+
                 <Modal onCancel={handleCancelSignUp} open={SignUpModal} footer={null}>
                     <SignUp />
-                </Modal> </div>) : (
-            <Modal open={showForgotPasswordModal} onCancel={()=>dispatch(closeForgotPassword())} footer={null}>
-                <ForgotPasswordModal />
-            </Modal>
-        )
-
-
+                </Modal>
+            </div>) : (
+                <Modal className="modalContent" open={showForgotPasswordModal} onCancel={() => dispatch(closeForgotPassword())} footer={null}>
+                    <ForgotPasswordModal />
+                </Modal>
+            )
     );
 }
 

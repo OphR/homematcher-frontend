@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'; 
 import { useRouter } from 'next/router';
 //Import Style et Logo
-import styles from '../styles/HeaderConnected.module.css';
 import Image from 'next/image';
 //FontAwesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -46,47 +45,45 @@ function Header() {
         router.push('/')
       }
 
-    return (
-        <div className={styles.header}>
-            <div className={styles.logoContainer}>
-                <Image src="/logo.png" alt="Logo" width={50} height={50} onClick={returnHome} />
-                <h1 className={styles.h1}>Home Matcher</h1>
+      return (
+        <div className="header">
+            <div className="logoContainer">
+                <Image className="logo" src="/logo.png" alt="Logo" width={70} height={70} />
+                <h1 className="h1">Home Matcher</h1>
             </div>
-            <div>
-                <h3 className={styles.h3}>{pageTitle}</h3>
-            </div>
-            <div className={styles.buttonsContainer}>
-    <Link href="/MyCriteriasPage">
-        <div className={styles.button}>
-                <FontAwesomeIcon icon={faHeart} className={styles.icon} /> 
-                <h2 className={styles.h2} >Matchs</h2>
-        </div>
-    </Link>
-    <Link href="/NotificationsPage">
-        <div className={styles.button}>
-                <FontAwesomeIcon icon={faBell} className={styles.icon} /> 
-                <h2 className={styles.h2} >Notifications</h2>
-        </div>
-    </Link>
-    <Link href="/MatchPage">
-        <div className={styles.button}>
-                <FontAwesomeIcon icon={faComments}  className={styles.icon}/> 
-                <h2 className={styles.h2}>Messagerie</h2>
-        </div>
-    </Link>
-        <div className={styles.button} onClick={() => setIsOpen(!isOpen)}>
-                <FontAwesomeIcon icon={faUser}  className={styles.icon}/> 
-                <h2 className={styles.h2}>Profil</h2>
-                {isOpen && (
-                    <div className={styles.dropdownMenu}>
-                        <Link className={styles.texte} href="/ProfilPage"><a>Mon compte</a></Link>
-                        <Link className={styles.texte} href="/RealtysPage"><a>Mes biens</a></Link>
-                        <a className={styles.text} onClick={() => handleLogout()}>Se déconnecter</a>
+            <h2 className="h2 title">{pageTitle}</h2>
+            <div className="buttonsContainer">
+                <Link href="/MyCriteriasPage">
+                    <div className="button">
+                        <FontAwesomeIcon icon={faHeart} className="icon" /> 
+                        <h3 className="h3" >Matchs</h3>
                     </div>
-                )}
+                </Link>
+                <Link href="/NotificationsPage">
+                    <div className="button">
+                        <FontAwesomeIcon icon={faBell} className="icon" /> 
+                        <h3 className="h3" >Notifications</h3>
+                    </div>
+                </Link>
+                <Link href="/MatchPage">
+                    <div className="button">
+                        <FontAwesomeIcon icon={faComments}  className="icon"/> 
+                        <h3 className="h3">Messagerie</h3>
+                    </div>
+                </Link>
+                <div className="button" onClick={() => setIsOpen(!isOpen)}>
+                    <FontAwesomeIcon icon={faUser}  className="icon"/> 
+                    <h3 className="h3">Profil</h3>
+                    {isOpen && (
+                        <div className="dropdownMenu">
+                            <Link className="p" href="/ProfilPage"><a>Mon compte</a></Link>
+                            <Link className="p" href="/RealtysPage"><a>Mes biens</a></Link>
+                            <a className="p" onClick={() => handleLogout()}>Se déconnecter</a>
+                        </div>
+                    )}
+                </div>
+            </div>
         </div>
-</div>
-</div>
     );
 };
 

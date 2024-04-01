@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import styles from '../styles/AddRealty.module.css'
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import HeaderConnected from './HeaderConnected';
@@ -118,108 +117,104 @@ function AddRealty() {
 
   return (
     <div>
-      <div className={styles.header}>
-        <HeaderConnected />
-      </div>
-      <div className={styles.main}>    
-        <div className={styles.container}>
-          <div className={styles.leftContainer}>
-            <div className={styles.inputContainer}>
-              <h2 className={styles.h2}> Informations:</h2>
-              <h4 className={styles.inputTitle}>Localisation : </h4>
-              <LoadScript googleMapsApiKey="AIzaSyCT2rUBJUBCi8pssdiVhICE4ZriXamrsjw" libraries={libraries} loading="async">  
-                <Autocomplete onLoad={(autocomplete) => {
-                  autocomplete.setFields(['address_component']);
-                  autocomplete.setTypes(['(regions)']); 
-                }}
-                onPlaceChanged={() => {}}
-                >
-                  <input className={styles.inputText} type="text" placeholder="Selectionnez la ville, le département, la région ou le pays" onChange={(e) => setLocation(e.target.value)} value={location} />
-                </Autocomplete>
-              </LoadScript>
-              <h4 className={styles.inputTitle}> Description : </h4>
-              <input type="text" className={styles.inputDesc} placeholder='Ecrivez une brève description du bien' onChange={(e) => setDescription(e.target.value)} value={description}/>
-              <h4 className={styles.inputTitle}>Prix de vente souhaité : </h4>
-              <input type="text" className={styles.inputText} placeholder='Indiquez ici le prix en €'  onChange={(e) =>  setPrice(e.target.value)} value={price}/>
-              <h4 className={styles.inputTitle}> Intérieur : </h4>
-              <input type="text" className={styles.inputText} placeholder='Surface habitable : ...m²'  onChange={(e) => setLivingArea(e.target.value)} value={livingArea} />
-              <input type="text" className={styles.inputText} placeholder='Nombre de pièces: ...' onChange={(e) => setRooms(e.target.value)} value={rooms}/>
-              <h4 className={styles.inputTitle}> Extérieur : </h4>
-              <input type="text" className={styles.inputText} placeholder='Surface du terrain : ...m²'  onChange={(e) => setOutdoorArea(e.target.value)} value={outdoorArea} />
-              <div className={styles.radioContainer}>
-                <input type="radio" id="terrace-yes" name="terrace" value="true" checked={terrace} onChange={handleTerraceChange}/>
-                <label htmlFor="terrace-yes">Avec terrasse</label>
-                <input type="radio" id="terrace-no" name="terrace" value="false" checked={!terrace} onChange={handleTerraceChange}/>
-                <label htmlFor="terrace-no">Sans terrasse</label>
-              </div>
-              <h4 className={styles.inputTitle}>Type de bien : </h4>
-              <input type="radio" id="typeofRealty-Maison" name="typeOfRealty" value="Maison" checked={typeOfRealty === "Maison"} onChange={() => setTypeOfRealty("Maison")} />
-              <label htmlFor="typeofRealty-Maison">Maison</label>
-              <input type="radio" id="typeOfRealty-Appartement" name="typeOfRealty" value="Appartement" checked={typeOfRealty === "Appartement"} onChange={() => setTypeOfRealty("Appartement")} />
-              <label htmlFor="typeOfRealty-Appartement">Appartement</label>
-            </div>
-          </div>
-          <div className={styles.middleContainer}>
-            <input type="file" id="fileInput" multiple onChange={handlePhotoChange} style={{ display: 'none' }} />
-            <button className={styles.button} onClick={handleButtonClick}>Ajouter une image</button>
-            <ImageCarrousel images={imageUrl} className={styles.carrousel}/>
-            {/* Bouton pour ajouter le bien */}
-            <button className={styles.button2} onClick={handleAddRealty}> Ajouter un bien </button>
-            {showWarning && (
-              <div className={styles.warningMessage}>
-                Veuillez renseignez tout les champs pour pouvoir ajouter votre bien<br></br>
-                (seul image et localisation ne sont pas obligatoires)
-              </div>
-            )}
-          </div>
-          <div className={styles.rightContainer}>
-            <div className={styles.mandatoryDocuments}>
-              <h2 className={styles.h2}>Documents Obligatoires</h2>
-              <FontAwesomeIcon onClick={handleInfoClick} className={styles.infoButton} icon={faQuestion} />
-              {showDocs &&
+            <HeaderConnected />
+        <div className="main">
+        <button className="buttonAddRealty" onClick={handleAddRealty}> Ajouter un bien </button>
+                    {showWarning && (
+                        <div className="p position">
+                            Veuillez renseigner tous les champs pour pouvoir ajouter votre bien.<br></br>
+                            (seules les images et localisations ne sont pas obligatoires)
+                        </div>
+                    )}
+            <div className="realtyContent">
+                <div className="leftContent">
+                    <div className="inputContainer">
+                        <h2 className="h2"> Informations:</h2>
+                        <h4 className="h4">Localisation : </h4>
+                        <LoadScript googleMapsApiKey="AIzaSyCT2rUBJUBCi8pssdiVhICE4ZriXamrsjw" libraries={libraries} loading="async">
+                            <Autocomplete onLoad={(autocomplete) => {
+                                autocomplete.setFields(['address_component']);
+                                autocomplete.setTypes(['(regions)']);
+                            }}
+                                onPlaceChanged={() => {}}>
+                                <input className="input" type="text" placeholder="Selectionnez la ville, le département, la région ou le pays" onChange={(e) => setLocation(e.target.value)} value={location} />
+                            </Autocomplete>
+                        </LoadScript>
+                        <h4 className="h4"> Description : </h4>
+                        <input type="text" className="input" placeholder='Ecrivez une brève description du bien' onChange={(e) => setDescription(e.target.value)} value={description} />
+                        <h4 className="h4">Prix de vente souhaité : </h4>
+                        <input type="text" className="input" placeholder='Indiquez ici le prix en €' onChange={(e) => setPrice(e.target.value)} value={price} />
+                        <h4 className="h4"> Intérieur : </h4>
+                        <input type="text" className="input" placeholder='Surface habitable : ...m²' onChange={(e) => setLivingArea(e.target.value)} value={livingArea} />
+                        <input type="text" className="input" placeholder='Nombre de pièces: ...' onChange={(e) => setRooms(e.target.value)} value={rooms} />
+                        <h4 className="h4"> Extérieur : </h4>
+                        <input type="text" className="input" placeholder='Surface du terrain : ...m²' onChange={(e) => setOutdoorArea(e.target.value)} value={outdoorArea} />
+                        <div className="radioContainer">
+                            <input type="radio" id="terrace-yes" name="terrace" value="true" checked={terrace} onChange={handleTerraceChange} />
+                            <label className='p' htmlFor="terrace-yes">Avec terrasse</label>
+                            <input type="radio" id="terrace-no" name="terrace" value="false" checked={!terrace} onChange={handleTerraceChange} />
+                            <label className='p' htmlFor="terrace-no">Sans terrasse</label>
+                        </div>
+                        <h4 className="h4">Type de bien : </h4>
+                        <input type="radio" id="typeofRealty-Maison" name="typeOfRealty" value="Maison" checked={typeOfRealty === "Maison"} onChange={() => setTypeOfRealty("Maison")} />
+                        <label className='p' htmlFor="typeofRealty-Maison">Maison</label>
+                        <input type="radio" id="typeOfRealty-Appartement" name="typeOfRealty" value="Appartement" checked={typeOfRealty === "Appartement"} onChange={() => setTypeOfRealty("Appartement")} />
+                        <label className='p' htmlFor="typeOfRealty-Appartement">Appartement</label>
+                    </div>
+                </div>
+                <div className="middle-Content">
+                    <input type="file" id="fileInput" multiple onChange={handlePhotoChange} style={{ display: 'none' }} />
+                    <button className="buttonAddRealty" onClick={handleButtonClick}>Ajouter une image</button>
+                    <ImageCarrousel images={imageUrl} className="img" />
+                </div>
+                <div className="rightContent">
                 <div>
-                  <ul>
-                    {docs.map((doc, index) => (
-                      <li key={index}>{doc}</li>
-                    ))}
-                  </ul>
+                        <h2 className="h2">Documents Obligatoires</h2>
+                        <FontAwesomeIcon onClick={handleInfoClick} className="iconDocuments" icon={faQuestion} />
+                        {showDocs &&
+                            <div>
+                                <ul className='p'>
+                                    {docs.map((doc, index) => (
+                                        <li key={index}>{doc}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        }
+                        <div>
+                            <input type="file" id="fileInput" multiple onChange={handleFileSelect} style={{ display: 'none' }} />
+                            <button className="buttonAddRealty" onClick={handleButtonClick}>Documents à fournir</button>
+                            {filesSelected && <FontAwesomeIcon className="downloadIcon" icon={faCheck} color="green" />}
+                        </div>
+                    </div>
+                    <div className="buyerContainer">
+                        <div>
+                            <h3 className="h2"> Profil acheteur souhaité:</h3>
+                            <div className="inputConfiguration">
+                                <h4 className="h4">Délai :</h4>
+                                <input className="inputRange" type="range" min={minDelay} max={maxDelay} value={delay} onChange={handleDelayChange}  />
+                                <span p className="p">{delay} semaine(s)</span>
+                            </div>
+                            <div className="inputConfiguration">
+                                <h4 className="h4"> Budget : </h4>
+                                <input className="inputRange" type="range" min={minBudget} max={maxBudget} step={10000} value={budget} onChange={handleBudgetChange} />
+                                <span p className="p">{budget} €</span>
+                            </div>
+                            <div className="inputConfiguration">
+                                <h4 className="h4">Financement :</h4>
+                                <div className="radioContainer">
+                                    <input type="radio" id="financed-yes" name="financed" value={true} checked={financed === true} onChange={() => setFinanced(true)} />
+                                    <label  className="p" htmlFor="financed-yes">Oui</label>
+                                    <input type="radio" id="financed-no" name="financed" value={false} checked={financed === false} onChange={() => setFinanced(false)} />
+                                    <label className="p" htmlFor="financed-no">Non</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              }
-              <div className={styles.downloadDocuments}>
-                <input type="file" id="fileInput" multiple onChange={handleFileSelect} style={{ display: 'none' }} />
-                <button className={styles.button} onClick={handleButtonClick}>Documents à fournir</button>
-                {filesSelected && <FontAwesomeIcon className={styles.downloadIcon} icon={faCheck} color="green" />}
-              </div>
             </div>
-            <div className={styles.whiteContainer}>
-              <div className={styles.infoAcheteur}>
-                <h3 className={styles.h3}> Profil acheteur souhaité:</h3>
-                <div className={styles.inputRangeContainer}>
-                  <p className={styles.p}>Délai :</p>
-                  <input type="range" min={minDelay} max={maxDelay} value={delay} onChange={handleDelayChange} className={styles.inputRange}/>
-                  <span>{delay} semaine(s)</span>
-                </div>
-                <div className={styles.inputRangeContainer}>
-                  <p className={styles.p}> Budget : </p>
-                  <input type="range" min={minBudget} max={maxBudget} step={10000} value={budget} onChange={handleBudgetChange} className={styles.inputRange} />
-                  <span>{budget} €</span>
-                </div>
-                <div className={styles.inputRangeContainer}>
-                  <p className={styles.p}>Financement :</p>
-                  <div className={styles.radioContainer}>
-                    <input type="radio" id="financed-yes" name="financed" value={true} checked={financed === true} onChange={() => setFinanced(true)} />
-                    <label htmlFor="financed-yes">Oui</label>
-                    <input type="radio" id="financed-no" name="financed" value={false} checked={financed === false} onChange={() => setFinanced(false)} />
-                    <label htmlFor="financed-no">Non</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  );
+);
 }
 
 export default AddRealty;

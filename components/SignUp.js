@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../reducers/user';
-import styles from '../styles/SignUp.module.css';
 import GoogleLogin from 'react-google-login';
 import SignIn from './SignIn';
 import { Modal } from 'antd';
@@ -60,20 +59,19 @@ function SignUp() {
 
 
     return (
-        <div className={styles.container}>
-            <h2 className={styles.title}>Créer un compte</h2>
-            <div className={styles.toConnect}>
-                <p className={styles.p}>Vous avez déjà un compte ?</p>
-                <button className={styles.connectButton} onClick={handleShowModalSignIn}>Se connecter</button>
+        <div className="container">
+            <h5 className="h5">Créer un compte</h5>
+            <div className="toConnect">
+                <p className="p">Vous avez déjà un compte ?</p>
+                <button className="connectButton" onClick={handleShowModalSignIn}>Se connecter</button>
             </div>
-            <h4 className={styles.h4}>Votre e-mail:</h4>
-            <input type="text" className={styles.input} onChange={(e) => setSignUpEmail(e.target.value)} value={signUpEmail} />
-            <h4 className={styles.h4}>Votre mot de passe:</h4>
-            <input type="password" className={styles.input} onChange={(e) => setSignUpPassword(e.target.value)} value={signUpPassword} />
+            <h4 className="h4">Votre e-mail:</h4>
+            <input type="text" className="input" onChange={(e) => setSignUpEmail(e.target.value)} value={signUpEmail} />
+            <h4 className="h4">Votre mot de passe:</h4>
+            <input type="password" className="input" onChange={(e) => setSignUpPassword(e.target.value)} value={signUpPassword} />
             {errorMessage && <p>{errorMessage}</p>}
-            <div className={styles.connect}>
-                <button className={styles.button} onClick={() => handleSubmit()}>Créer un compte</button>
-                <h6 className={styles.h6}>ou</h6>
+                <button className="buttonsignInandUp" onClick={() => handleSubmit()}>Créer un compte</button>
+                <h6 className="h6 position">ou</h6>
                 <GoogleLogin
                     clientId="313442107107-r67n8849np3ndu8sqllj4qblsbd0eh7c.apps.googleusercontent.com"
                     buttonText="Sign Up with Google"
@@ -81,7 +79,6 @@ function SignUp() {
                     onFailure={responseGoogle}
                     cookiePolicy={'single_host_origin'}
                 />
-            </div>
             <Modal onCancel={handleCancelSignIn} open={signInModal} footer={null}>
                 <SignIn />
             </Modal>

@@ -1,4 +1,3 @@
-import styles from '../styles/MyRealtys.module.css';
 import Link from 'next/link'
 import HeaderConnected from './HeaderConnected';
 import { useDispatch, useSelector } from 'react-redux';
@@ -31,24 +30,20 @@ function MyRealtys() {
   })
 
   return (
-    <div className={styles.main}>
-      <div className={styles.header}>
+    <div className="main">
         <HeaderConnected/>
-      </div>
-      <div className={styles.btnContainer}>
+      <div className="btnContainer">
         <Link href='/AddRealtyPage'>
-          <button className={styles.btn}> + Ajouter un bien </button>
+          <button className="buttonAddRealty"> Ajouter un bien </button>
         </Link>
       </div>
-      <div className={styles.container}>
-        <div className={styles.realtyCard}>
+      <div className="realtycontainer">
+        <div className="realtyCard">
           {realtys}
         </div>
       </div>
     </div>
   );
-  
-  
   
 }
 
