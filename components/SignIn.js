@@ -101,9 +101,12 @@ function SignIn() {
                     <SignUp />
                 </Modal>
             </div>) : (
-                <Modal className="modalContent" open={showForgotPasswordModal} onCancel={() => dispatch(closeForgotPassword())} footer={null}>
+                <div className="modalContent">
+                <Modal open={showForgotPasswordModal} onCancel={() => dispatch(closeForgotPassword())} footer={null}>
                     <ForgotPasswordModal />
                 </Modal>
+              </div>
+
             )
     );
 }

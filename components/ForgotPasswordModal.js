@@ -35,19 +35,27 @@ const handleConnection =()=>{
 }
 
   return (
-    <div className="container forgotPass">
+    <div className="modalContent">
+        <div className="closer">
         <h5 className="h5">Réinitialisation du mot de passe</h5>
-        <div className="close">
-        <h4 className="h4">Mot de passe oublié ?</h4>
-        <p className="p">Saisissez votre e-mail relié à votre compte. S'il est reconnu, vous recevrez un e-mail vous permettant de mettre à jour votre mot de passe.</p>
         </div>
+        <div className="closer">
+        <h4 className="h4">Mot de passe oublié ?</h4>
+        <p className="p text">Saisissez votre e-mail relié à votre compte. S'il est reconnu, vous recevrez un e-mail vous permettant de mettre à jour votre mot de passe.</p>
+        </div>
+        <div className="closer">
         <h4 className="h4">Votre e-mail: </h4>
         <input className="input" type="email"  value={email} onChange={(e) => setEmail(e.target.value)} />
+        </div>
+        <div className="closer">
         <button className="buttonsignInandUp" type="submit" onClick={handleSubmit}>Envoyer</button>
         {resMessage && <p>{resMessage}</p>}
+        <div className="closer">
         <p className="p">J'ai retrouvé mon mot de passe :
             <button className="connectButton" onClick={() => handleConnection()} type='button'>Se connecter</button>
         </p>
+        </div>
+        </div>
     </div>
   );
 

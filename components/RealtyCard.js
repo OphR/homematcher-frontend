@@ -36,7 +36,7 @@ function RealtyCard(props) {
       <p className="p"><strong>Prix du bien:</strong> &nbsp;&nbsp;{props.price}€</p>
       <p className="p"><strong>Surface habitable:</strong> &nbsp;&nbsp;{props.livingArea}m²</p>
       <p className="p"><strong>Nombre de pièces:</strong> &nbsp;&nbsp;{props.rooms}</p>
-      <p className="p"><strong>Surface du terrain:</strong> &nbsp;&nbsp;{props.outdoorArea}</p>
+      <p className="p"><strong>Surface du terrain:</strong> &nbsp;&nbsp;{props.outdoorArea}m²</p>
       <p className="p"><strong>Terrasse : </strong> &nbsp;&nbsp;{props.terrace ? 'Oui' : 'Non'}</p>
       <p className="p"><strong>Type de bien : </strong> &nbsp;&nbsp;{props.typeOfRealty}</p>
       <h1 className="p"><strong>Profil acheteur souhaité pour le bien:</strong> 

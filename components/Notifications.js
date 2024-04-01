@@ -111,14 +111,14 @@ function Likes() {
     const Modal = ({ username, onClose }) => {
         return (
             <div className="modal">
-                <div className="modalContent">
+                <div className="modalNotifications">
                     <span className="close" onClick={closeModal}>&times;</span>
                     <img src={selectedNotification.selectedImage} alt="Profile Picture" height={200} width={200} />
-                    <h2 className="h2">{selectedNotification.username}</h2>
+                    <h2 className="h5">{selectedNotification.username}</h2>
                     <div className="modalDescription">
                         <p className='p'><strong>Description:</strong> {selectedNotification.description}</p>
                         <p className='p'><strong>Email:</strong> {selectedNotification.email}</p>
-                        <p className='p'><strong>Délai:</strong> {selectedNotification.delay}</p>
+                        <p className='p'><strong>Délai:</strong> {selectedNotification.delay} semaines</p>
                         <p className='p'><strong>Financement:</strong> {selectedNotification.financed ? 'Oui' : 'Non'}</p>
                     </div>
                     <div className="iconContainer">
