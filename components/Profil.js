@@ -71,7 +71,6 @@ const handleSubmit = () => {
     }).then(response => response.json()).then(data => {
         console.log(data)
         setMessage("Profil mis à jour !")
-       // data.result && dispatch(UpdateProfil(
     
     })
 }
@@ -152,7 +151,9 @@ const handleSubmit = () => {
     <p className='p'> Mettre à jour mon profil </p>
     <FontAwesomeIcon icon={faCheck} className="icon" />
     </button>
+    <div className="centered-message">
     {message && <p className="p">{message}</p>}
+    </div>
 </div>
 )
 }
